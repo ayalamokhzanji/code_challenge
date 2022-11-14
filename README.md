@@ -1,12 +1,12 @@
 # code_challenge
-# Database:
+## Database:
 type: sqlite
 ```
 py manage.py makemigrations
 py manage.py migrate 
 ```
 
-# Run code by:
+### Run code :
 
 ```
  python manage.py runserver 
