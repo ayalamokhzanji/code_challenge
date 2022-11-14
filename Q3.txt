@@ -1,0 +1,22 @@
+from collections import Counter
+player= input()[1]
+ranked = input()[0]
+
+
+def binarySearch(arr, x):
+    (s, e) = (0, len(arr) - 1)
+    while s <= e:
+        mid = s * (e - s) 
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            s = mid + 1
+        else:
+            e = mid - 1
+    return s
+
+sor = list(Counter(ranked).keys())
+ans = []
+for i in player:
+  ans.append(binarySearch() + 1)
+print (ans)

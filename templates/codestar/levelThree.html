@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/time.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>streamline</title>
+  <link rel="icon" izes="76x76"type="image/jpeg" href="static/image/icon.jpeg">
+</head>
+
+<body>
+  <div id="loding" class="background">
+    <p class="loader">Last Level</p>
+  </div>
+  <div id="level" class="min-h-screen bg-no-repeat bg-cover bg-center relative" style="display: none;background-image: linear-gradient(rgba(27, 44, 38, 0.9), rgba(11, 11, 11, 0.9)), 
+    url('{% static 'image/background.png' %}');">
+    <div class="absolute bg-gradient-to-r from-gray-900 to-gray-900 opacity-75  z-0"></div>
+
+    <div style="display: none ;    position: fixed;
+      left: 34%;
+      top: 41%;" class="  flex justify-center" id="time-out">
+      <p>TIME OFF</p>
+    </div>
+    <div class="container-fluid">
+      <div class="p-4">
+        <div class="text-2xl text-white flex justify-center">
+
+          <strong> Level Three </strong>
+          <p class="text-white text-2xl bg[#1c4036] px-3 " id="timer"></p>
+        </div>
+      </div>
+
+      <form action="/level-three/run" method="post">
+        {% csrf_token %}
+        <div class="grid lg:grid-cols-5   mx-5 text-white"">
+              <div class=" col-span-2 mx-1 text-white ">
+                <div class=" bg-[#1f463d87] p-4 ">
+                    <p>
+                      An arcade game player wants to climb to the top of the leaderboard and track their ranking. The game uses Dense Ranking, so its leaderboard works like this:
+
+                      The player with the highest score is ranked number  on the leaderboard.
+                      Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
+                    </p>
+                    <h1>Example</h1>
+                    ranked =[100,100,70,50]
+                    player= [10,60,80,101]
+                    Return =[4, 3, 2, 1]
+                </div>
+                <div class=" bg-[#1f463d87] my-2 p-4 overflow-y-scroll ">
+                  <label for=" comment">
+          <h5>Output</h5></label>
+          <textarea
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            rows="7" name="output_area" disabled>{{output}}</textarea>
+        </div>
+    </div>
+
+
+    <div class="col-span-3 mx-1 ">
+      <div>
+        <label for="comment">
+          <h4>Coding Area</h4>
+        </label>
+        <textarea class="form-control text-white
+                  "
+          style="border: 1px solid #1e6b53cf;letter-spacing: 1px;font-family: 'Lucida Console';font-size: 20px;background-color: #10201bcf;"
+          rows="14" name="code_area" id="Coding_area"
+          onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{code}}</textarea>
+      </div>
+      <div class="pt-8  float-right">
+        <div class="w-full flex space-x-4 ">
+          <button class="bg-gradient-to-r from-green-500 
+                    btn bg-green-900 rounded-t-lg hover:bg-gray-700 text-white p-3" type="submit">Run </button>
+        </div>
+      </div>
+    </div>
+  </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</body>
+<script>
+   setTimeout(() => {
+    document.getElementById('level').style.display = 'block';
+    document.getElementById('loding').style.display = 'none';
+    document.getElementById("submit").disabled = true;
+      document.getElementById("Coding_area").disabled = true;
+
+  }, "5000")
+  document.getElementById('timer').innerHTML =
+    03 + ":" + 00;
+  startTimer();
+
+ 
+  function startTimer() {
+    var presentTime = document.getElementById('timer').innerHTML;
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));
+    if (s == 59) { m = m - 1 }
+    if (m < 0) {
+      return
+    }
+    if (m == 0 && s == 00) {
+
+      document.getElementById('time-out').style.display = 'block';
+      document.getElementById("submit").disabled = true;
+      document.getElementById("Coding_area").disabled = true;
+      // document.getElementById('container').style.display='none';
+
+
+    }
+    document.getElementById('timer').innerHTML =
+      m + ":" + s;
+    setTimeout(startTimer, 1000);
+
+  }
+
+  function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
+    if (sec < 0) { sec = "59" };
+    return sec;
+  }
+
+
+</script>
+
+</html>

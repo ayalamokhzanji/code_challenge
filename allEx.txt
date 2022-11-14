@@ -1,0 +1,130 @@
+rows = 5
+
+k = 0
+
+for i in range(1, rows+1):
+    for space in range(1, (rows-i)+1):
+        print(end="  ")
+   
+    while k!=(2*i-1):
+        print("* ", end="")
+        k += 1
+   
+    k = 0
+    print()
+
+Output
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+
+
+
+______________________________________________________
+rows = 5
+for i in range(rows, 1, -1):
+    for space in range(0, rows-i):
+        print("  ", end="")
+    for j in range(i, 2*i-1):
+        print("* ", end="")
+    for j in range(1, i-1):
+        print("* ", end="")
+    print()
+
+
+
+    Output
+* * * * * * * 
+  * * * * * 
+    * * * 
+      * 
+______________________________________________________
+  level 2
+
+arr=[]
+for a in range(len(input())):
+  add =0
+  l = []
+  cunt = 0
+  arr= input()[a]
+  for i in range(len(arr)):
+    for j in range(len(arr)):
+      if j != cunt:
+        add +=arr[j]
+    l.append(add)
+    add = 0
+    cunt +=1
+  a = str(min(l))+" " +str(max(l))
+  print(a)
+
+
+
+add =0
+l = []
+cunt = 0
+for i in range(len(input())):
+  for j in range(len(input())):
+    if j != cunt:
+    	add +=input()[j]
+  l.append(add)
+  add = 0
+  cunt +=1
+a = str(min(l))+" " +str(max(l))
+print(a)
+
+      arr[
+        7 69 2 221 8974
+      ]
+
+      299 9271
+
+      arr[
+        1 2 3 4 5
+      ]
+
+     10 14
+
+      arr[
+        10 12 31 400 58
+      ]
+      111   501
+      arr[
+        51 0 63 41 70
+      ]
+      155   225
+
+
+_______________________________________________
+from collections import Counter
+player= input()[1]
+ranked = input()[0]
+
+
+def binarySearch(arr, x):
+    (s, e) = (0, len(arr) - 1)
+    while s <= e:
+        mid = s + (e - s) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            s = mid + 1
+        else:
+            e = mid - 1
+    return s
+sor = list(Counter(ranked).keys())
+ans = []
+for i in player:
+  ans.append(binarySearch(sor, i) + 1)
+print (ans)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>streamline</title>
+  <link rel="icon" izes="76x76"type="image/jpeg" href="static/image/icon.jpeg">
+</head>
+
+<body>
+  <div class="loader-container">
+    <div class="spinner"></div>
+  </div>
+  <div class="min-h-screen bg-no-repeat bg-cover bg-center relative"
+    style="background-image: linear-gradient(rgba(27, 44, 38, 0.9), rgba(11, 11, 11, 0.9)), url(static/image/background.png);">
+    <div class="absolute bg-gradient-to-r from-gray-900 to-gray-900 opacity-75  z-0"></div>
+   
+
+      <div class="grid grid-cols-3 grid h-screen place-items-center">
+        <div class="flex justify-center">
+          <div class="rounded-lg shadow-lg bg-[#f4f2f2cf] max-w-sm">
+              <img class="rounded-t-lg" src="static/image/odoo_new.jpeg" alt="odoo" />
+            
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl font-medium mb-2">Odoo</h5>
+              <p class="text-gray-700 text-base mb-4">
+                odoo is one of the most important ERPsystem, this award is concerned with training on this system and learning the modification and development mechanism
+
+              </p>
+           
+              
+              <a type="button" href="form/1" 
+                class=" bg-gradient-to-r from-green-500 
+                    btn bg-green-900 rounded-t-lg hover:bg-gray-700 text-white p-3">Go</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div class="rounded-lg shadow-lg bg-[#f4f2f2cf] max-w-sm">
+            <img class="rounded-t-lg" src="static/image/Full-Stack-DeveloperArtboard-1.png" alt="full stack" />
+            
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl font-medium mb-2">Full stack</h5>
+              <p class="text-gray-700 text-base mb-4">
+                To be full  stack devoloper is not easy, this training will start from the basics of programming, DB and go to a glimpse of the languages  so that you can choose one of them to dive into them and take detailed training.
+                <!-- <ul>
+                  <strong> you most learn</strong> 
+                  <li>basec :: Html,css,js</li>
+                  <li>data base</li>
+                  <li>choice one of them: php,python</li>
+                  <li>choice one of them: laravel ,django</li>
+                  <li>choice one of them: react, vue</li>
+                </ul> -->
+              </p>
+             
+              <a type="button" href="form/2" 
+                class=" bg-gradient-to-r from-green-500 
+                    btn bg-green-900 rounded-t-lg hover:bg-gray-700 text-white p-3">Go</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div class="rounded-lg shadow-lg bg-[#f4f2f2cf] max-w-sm">
+            <img class="rounded-t-lg" src="static/image/Coursera.png" alt="coursera" />
+            
+            <div class="p-6">
+              <h5 class="text-gray-900 text-xl font-medium mb-2">Coursera</h5>
+              <p class="text-gray-700 text-base mb-4">
+                Coursera Inc. is a open online course provider Coursera works with universities and other organizations to offer online courses
+              
+              </p>
+              <p class="mb-4">
+                <strong>At this award, we provide you with any course of your choice.</strong>
+              </p>
+           
+
+              <a type="button" href="form/3" 
+                class=" bg-gradient-to-r from-green-500 
+                    btn bg-green-900 rounded-t-lg hover:bg-gray-700 text-white p-3">Go</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+</body>
+
+
+</html>

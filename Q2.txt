@@ -1,0 +1,15 @@
+arr=[]
+for a in range(len(input())):
+  add =0
+  l = []
+  cunt = 0
+  arr= input()[a]
+  for i in range(len(arr)):
+    for j in range(len(arr)):
+      if j != cunt:
+
+    l.append(add)
+    add = 0
+    cunt +=1
+  a = str(l)
+  print(a)
